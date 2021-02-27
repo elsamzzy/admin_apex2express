@@ -37,7 +37,7 @@
                                     @foreach($list as $value)
                                         <tr>
                                             <td class="text-center">
-                                                <a href="{{ route('') }}" >{{ $value->name }}</a>
+                                                <a href="{{ route('details', $value) }}" >{{ $value->name }}</a>
                                             </td>
                                             <td class="text-center">
                                                 {{ $value->mode }}

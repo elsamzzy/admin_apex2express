@@ -23,4 +23,9 @@ class Track extends Model
     public function trackList() {
        return $this->get()->where('user_id', auth()->user()->id);
     }
+
+    public function details($id) {
+        return $this->where('id', $id)->first();
+    }
+
 }

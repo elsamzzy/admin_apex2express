@@ -11,6 +11,12 @@ class Detail extends Model
 
     protected $fillable = [
         'tracks_id',
-        'shipping_info'
+        'shipping_info',
+        'description',
+        'user_id'
     ];
+
+    public function details(Track $track) {
+        return $this->latest()->get()->where('tracks_id', $track->id);
+    }
 }

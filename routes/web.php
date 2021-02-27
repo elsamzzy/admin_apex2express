@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'store']);
+
+Route::get('/details/{track:track_id}', [DetailsController::class, 'index'])->name('details');
+Route::post('/details/{track:track_id}', [DetailsController::class, 'store']);

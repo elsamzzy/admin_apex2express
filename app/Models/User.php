@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function numTracks() {
         return $this->hasMany(Track::class);
     }
+
+    public function trackDetails() {
+        return $this->hasManyThrough(Track::class, Detail::class);
+    }
 }

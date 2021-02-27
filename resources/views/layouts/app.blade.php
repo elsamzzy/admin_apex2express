@@ -25,10 +25,10 @@
     <div class="sidebar" data="blue">
         <div class="sidebar-wrapper" data="blue">
             <div class="logo">
-                <a href="javascript:void(0)" class="simple-text logo-mini">
+                <a href="{{ route('home') }}" class="simple-text logo-mini">
                     {{ auth()->user()->username }}
                 </a>
-                <a href="javascript:void(0)" class="simple-text logo-normal">
+                <a href="{{ route('home') }}" class="simple-text logo-normal">
                     {{ auth()->user()->username }} - {{ auth()->user()->admin }}
                 </a>
             </div>
