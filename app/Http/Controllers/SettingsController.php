@@ -22,7 +22,7 @@ class SettingsController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'old_password' => ['string', 'required'],
-            'password' => ['string', 'required', 'confirmed'],
+            'password' => ['string', 'required', 'min:6', 'confirmed'],
         ]);
         $hashedPassword = User::find(auth()->user()->id)->password;
         if (Hash::check($request['old_password'], $hashedPassword)) {

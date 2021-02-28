@@ -18,7 +18,9 @@ class DetailsController extends Controller
         return view('details', [
             'details' => $details->details($request['track']),
             'title' => $name . "'s Dashboard'",
-            'track' => $track
+            'track' => $track,
+            'updated' => $details->lastUpdated($track)->created_at
+
         ]);
     }
 

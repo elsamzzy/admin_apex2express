@@ -19,4 +19,9 @@ class Detail extends Model
     public function details(Track $track) {
         return $this->latest()->get()->where('tracks_id', $track->id);
     }
+
+    public function lastUpdated(Track $track) {
+        return $this->latest()->where('tracks_id', $track->id)->first();
+    }
+
 }

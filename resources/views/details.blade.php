@@ -53,7 +53,7 @@
                                         {{ $track->created_at->diffForHumans() }}
                                     </td>
                                     <td class="text-center">
-                                        {{ $track->updated_at->diffForHumans() }}
+                                        {{ $updated->diffForHumans() }}
                                     </td>
                                 </tr>
                                 </tbody>
