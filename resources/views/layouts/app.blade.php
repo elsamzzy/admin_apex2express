@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href="{{ route('settings') }}">
                         <i class="tim-icons icon-atom"></i>
                         <p>{{ __('Settings') }}</p>
                     </a>
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </nav>
-        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header justify-content-center">
@@ -260,7 +260,7 @@
 <script src="{{ asset('js/perfect-scrollbar.jquery.min.js') }}"></script>
 <script src="{{ asset('js/chartjs.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
-<script src="{{ asset('js/black-dashboard.min.js?v=1.0.0') }}"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+<script src="{{ asset('js/black-dashboard.min.js?v=1.0.0') }}"></script>
 <script src="{{ asset('js/demo.js') }}"></script>
 <script>
     $(document).ready(function() {

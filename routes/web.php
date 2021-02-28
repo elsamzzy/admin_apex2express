@@ -3,6 +3,7 @@
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,6 @@ Route::post('/home', [HomeController::class, 'store']);
 
 Route::get('/details/{track:track_id}', [DetailsController::class, 'index'])->name('details');
 Route::post('/details/{track:track_id}', [DetailsController::class, 'store']);
+
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+Route::post('/settings', [SettingsController::class, 'store']);

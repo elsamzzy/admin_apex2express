@@ -17,7 +17,7 @@
                                     <thead class="text-primary">
                                     <tr>
                                         <th class="text-center">
-                                            {{ __('Name') }}
+                                            {{ __('Tracking ID') }}
                                         </th>
                                         <th class="text-center">
                                             {{ __('Mode') }}
@@ -37,7 +37,7 @@
                                     @foreach($list as $value)
                                         <tr>
                                             <td class="text-center">
-                                                <a href="{{ route('details', $value) }}" >{{ $value->name }}</a>
+                                                <a href="{{ route('details', $value) }}" >{{ $value->name }}{{ __('_') }}{{ $value->id }}</a>
                                             </td>
                                             <td class="text-center">
                                                 {{ $value->mode }}

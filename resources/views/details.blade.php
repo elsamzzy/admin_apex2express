@@ -14,7 +14,7 @@
                                 <thead class="text-primary">
                                 <tr>
                                     <th class="text-center">
-                                        {{ __('Name') }}
+                                        {{ __('Tracking ID') }}
                                     </th>
                                     <th class="text-center">
                                         {{ __('Mode') }}
@@ -33,7 +33,7 @@
                                 <tbody>
                                 <tr>
                                     <td class="text-center">
-                                        {{ $track->name }}
+                                        {{ $track->name }}{{ __('_') }}{{ $track->id }}
                                     </td>
                                     <td class="text-center">
                                         {{ $track->mode }}
