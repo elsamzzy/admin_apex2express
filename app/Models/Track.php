@@ -12,12 +12,21 @@ class Track extends Model
     protected $fillable = [
       'user_id',
         'track_id',
-        'name',
-        'location',
-        'size',
-        'mode',
+        'tracking_number',
+        'status',
         'date',
-        'description'
+        'origin',
+        'destination',
+        'mode',
+        'weight',
+        'shipper_name',
+        'shipper_phone',
+        'shipper_address',
+        'consignee_name',
+        'consignee_address',
+        'consignee_phone',
+        'booking_mode',
+        'description',
     ];
 
     public function trackList() {

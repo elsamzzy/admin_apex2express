@@ -31,4 +31,17 @@ class SettingsController extends Controller
         }
         return back()->with('password','Incorrect password');
     }
+
+    public function info(Request $request) {
+        $this->validate($request, [
+            'phone' => ['string', 'required'],
+            'address' => ['string', 'required'],
+        ]);
+
+        User::where('id', auth()->user()->id)->update([
+           'address' => $request['address'],
+            'phone' => $request['phone'],
+        ]);
+        return back()->with('message', 'Successfully changed your Details');
+    }
 }

@@ -14,40 +14,104 @@
                                 <thead class="text-primary">
                                 <tr>
                                     <th class="text-center">
-                                        {{ __('Tracking ID') }}
+                                        {{ __('Tracking Number') }}
+                                    </th>
+                                    <th class="text-center">
+                                        {{ __('Status') }}
+                                    </th>
+                                    <th class=“text-center”>
+                                        Date
+                                        </th>
+                                    <th class=“text-center”>
+                                        Origin
+                                    </th>
+                                    <th class=“text-center”>
+                                        Destination
                                     </th>
                                     <th class="text-center">
                                         {{ __('Mode') }}
                                     </th>
                                     <th class="text-center">
-                                        {{ __('Size') }}
+                                        {{ __('Weight(Kg)') }}
                                     </th>
                                     <th class="text-center">
-                                        {{ __('Date Created') }}
+                                        {{ __('Shipper Name') }}
                                     </th>
                                     <th class="text-center">
-                                        {{ __('Date Last Updated') }}
+                                        {{ __('Shipper Phone') }}
+                                    </th>
+                                    <th class="text-center">
+                                        {{ __('Shipper Address') }}
+                                    </th>
+                                    <th class="text-center">
+                                        {{ __('Consignee Name') }}
+                                    </th>
+                                    <th class=“text-center”>
+                                        Consignee_address
+                                    </th>
+                                    <th class=“text-center”>
+                                        Consignee Phone
+                                    </th>
+                                    <th class=“text-center”>
+                                        Booking Mode
+                                    </th>
+                                    <th class=“text-center”>
+                                        Description
+                                    </th>
+                                    <th class=“text-center”>
+                                        Created
+                                    </th>
+                                    <th class=“text-center”>
+                                        Updated
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td class="text-center">
-                                        {{ $track->name }}{{ __('_') }}{{ $track->id }}
+                                        {{ $track->tracking_number }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->status }}
+                                    </td>
+                                    <td class=“text-center”>
+                                        {{ $track->date }}
+                                    </td>
+                                    <td class=“text-center”>
+                                        {{ $track->origin }}
+                                    </td>
+                                    <td class=“text-center”>
+                                        {{ $track->destination }}
                                     </td>
                                     <td class="text-center">
                                         {{ $track->mode }}
                                     </td>
                                     <td class="text-center">
-                                        @if($track->size == 's')
-                                            {{ __('Small') }}
-                                        @elseif($track->size == 'm')
-                                            {{ __('Medium') }}
-                                        @elseif($track->size == 'l')
-                                            {{ __('Large') }}
-                                        @elseif($track->size == 'xl')
-                                            {{ __('Extra Large') }}
-                                        @endif
+                                        {{ $track->weight }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->shipper_name }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->shipper_phone }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->shipper_address }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->consignee_name }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->consignee_address }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->consignee_phone }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->booking_mode }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $track->description }}
                                     </td>
                                     <td class="text-center">
                                         {{ $track->created_at->diffForHumans() }}

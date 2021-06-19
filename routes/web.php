@@ -31,3 +31,4 @@ Route::post('/details/{track:track_id}', [DetailsController::class, 'store']);
 
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::post('/settings', [SettingsController::class, 'store']);
+Route::post('/info', [SettingsController::class, 'info'])->name('info');

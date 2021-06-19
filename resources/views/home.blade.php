@@ -11,11 +11,14 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table tablesorter " id="">
-                                @if( $list->count() == 0 )
+                                @if( $list->count() === 0 )
                                     <p> {{ __('You have not added logistics details for tracking') }} </p>
                                 @else
                                     <thead class="text-primary">
                                     <tr>
+                                        <th class="text-center">
+                                            {{ __('Tracking Number') }}
+                                        </th>
                                         <th class="text-center">
                                             {{ __('Tracking ID') }}
                                         </th>
@@ -24,6 +27,18 @@
                                         </th>
                                         <th class="text-center">
                                             {{ __('Size') }}
+                                        </th>
+                                        <th class="text-center">
+                                            {{ __('Origin') }}
+                                        </th>
+                                        <th class="text-center">
+                                            {{ __('Destination') }}
+                                        </th>
+                                        <th class="text-center">
+                                            {{ __('Weight(Kg)') }}
+                                        </th>
+                                        <th class="text-center">
+                                            {{ __('Arrival Date') }}
                                         </th>
                                         <th class="text-center">
                                             {{ __('Date Created') }}
@@ -37,7 +52,10 @@
                                     @foreach($list as $value)
                                         <tr>
                                             <td class="text-center">
-                                                <a href="{{ route('details', $value) }}" >{{ $value->name }}{{ __('_') }}{{ $value->id }}</a>
+                                                <a href="{{ route('details', $value) }}" >{{ $value->tracking_number }}</a>
+                                            </td>
+                                            <td class="text-center">
+                                                {{ $value->name }}{{ __('_') }}{{ $value->id }}
                                             </td>
                                             <td class="text-center">
                                                 {{ $value->mode }}
@@ -52,6 +70,9 @@
                                                 @elseif($value->size == 'xl')
                                                     {{ __('Extra Large') }}
                                                 @endif
+                                            </td>
+                                            <td class="text-center">
+                                                {{ $value->date }}
                                             </td>
                                             <td class="text-center">
                                                 {{ $value->created_at->diffForHumans() }}

@@ -17,7 +17,7 @@ class DetailsController extends Controller
         $name = auth()->user()->username;
         return view('details', [
             'details' => $details->details($request['track']),
-            'title' => $name . "'s Dashboard'",
+            'title' => $name . "'s Dashboard",
             'track' => $track,
             'updated' => $details->lastUpdated($track)->created_at
 

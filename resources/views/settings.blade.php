@@ -49,6 +49,43 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title"> {{ __('Settings') }} {{ __('|') }} {{ __('Change Details') }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="{{ route('info') }}" >
+                            @csrf
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <label for="phone">{{ __('Mobile Phone') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="tel" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="Your Mobile Phone" required value="{{ auth()->user()->phone }}"/>
+                                    @error('phone')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-6">
+                                    <label for="Address">{{ __('Your Address') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Your Address" required value="{{ auth()->user()->address }}" />
+                                    @error('address')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <button type="submit" class="btn btn-primary">{{ __('Change Details') }}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

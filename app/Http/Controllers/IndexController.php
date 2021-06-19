@@ -15,8 +15,6 @@ class IndexController extends Controller
     }
 
     public function index(){
-        //$uuid = Str::uuid(3)->toString();
-        //dd($uuid);
         return view('index');
     }
 
@@ -40,6 +38,8 @@ class IndexController extends Controller
         $this->validate($request, [
             'code' => ['required', 'string'],
             'username' => ['required', 'string', 'unique:users'],
+            'phone' => ['required', 'string'],
+            'address' => ['required', 'string'],
             'password' => ['required', 'string', 'min:6', 'confirmed']
         ]);
         $code = 74512;
@@ -50,6 +50,8 @@ class IndexController extends Controller
         $user = User::create([
             'username' => $request['username'],
             'admin' => $uuid,
+            'phone' => $request['phone'],
+            'address' => $request['address'],
             'password' => Hash::make($request['password']),
 
         ]);

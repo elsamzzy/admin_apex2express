@@ -49,6 +49,27 @@
                                    <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+
+                        <div class="form-group @error('phone') is-invalid @enderror">
+                            <label for="phone"><i class="zmdi zmdi-phone material-icons-mobile"></i></label>
+                            <input type="tel" name="phone" id="phone" placeholder="Phone Number" value="{{ old('phone') }}" required/>
+                        </div>
+                        @error('phone')
+                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                   <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                        <div class="form-group @error('address') is-invalid @enderror">
+                            <label for="address"><i class="zmdi zmdi-my-location material-icons-home"></i></label>
+                            <input type="text" name="address" id="address" placeholder="Your Address as Sender" value="{{ old('address') }}" required/>
+                        </div>
+                        @error('address')
+                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                   <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
                         <div class="form-group @error('password') is-invalid @enderror">
                             <label for="password"><i class="zmdi zmdi-lock"></i></label>
                             <input type="password" name="password" id="password" placeholder="Password" required/>

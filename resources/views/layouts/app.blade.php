@@ -114,35 +114,44 @@
                             @csrf
                             <div class="row">
                                 <div class="col-3">
-                                    <label for="name">{{ __('Name of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Name of parcel" id="name" name="name" required value="{{ old('name') }}"/>
-                                    @error('name')
+                                    <label for="name">{{ __('Status') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('status') is-invalid @enderror" placeholder="Status" id="status" name="status" required value="{{ old('status') }}"/>
+                                    @error('status')
                                         <span class="is-invalid text-center" role="alert" style="color: red">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
                                 <div class="col-3">
-                                    <label for="size">{{ __('Size of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
-                                    <select class="form-control @error('size') is-invalid @enderror" name="size" id="size">
-                                        <option value="s">Small</option>
-                                        <option value="m">Medium</option>
-                                        <option value="l">Large</option>
-                                        <option value="xl">Extra Large</option>
-                                    </select>
-                                    @error('size')
+                                    <label for="size">{{ __('Expected Delivery Date') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type='text' class="form-control @error('date') is-invalid @enderror" name="date" id="date" placeholder="Expected Delivery Date" value="{{ old('date') }}"/>
+                                    @error('date')
                                     <span class="is-invalid text-center" role="alert" style="color: red">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
                                 <div class="col-3">
-                                    <label for="mode">{{ __('Mode of Transport') }}<span style="color: red">{{ __('*') }}</span></label>
-                                    <select class="form-control @error('mode') is-invalid @enderror" name="mode" id="mode">
-                                        <option value="Air">Air</option>
-                                        <option value="Land">Land/Truck</option>
-                                        <option value="Ship">Ship</option>
-                                    </select>
+                                    <label for="origin">{{ __('Origin of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('origin') is-invalid @enderror" placeholder="Origin of parcel" id="origin" name="origin" required value="{{ old('origin') }}"/>
+                                    @error('origin')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                 <div class="col-3">
+                                    <label for="name">{{ __('Destination of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('destination') is-invalid @enderror" placeholder="Destination of parcel" id="destination" name="destination" required value="{{ old('destination') }}"/>
+                                    @error('destination')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-3">
+                                    <label for="mode">{{ __('Shipment Type') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input name="mode" id="mode" class="form-control @error('mode') is-invalid @enderror" placeholder="Shipment Type" required value="{{ old('mode') }}"/>
                                     @error('mode')
                                     <span class="is-invalid text-center" role="alert" style="color: red">
                                             <strong>{{ $message }}</strong>
@@ -150,9 +159,105 @@
                                     @enderror
                                 </div>
                                 <div class="col-3">
-                                    <label for="date">{{ __('Estimated day of arrival') }}<span style="color: red">{{ __('*') }}</span></label>
-                                    <input type="date" class="form-control @error('date') is-invalid @enderror" placeholder="DD-MM-YYYY" name="date" id="date" required value="{{ old('date') }}"/>
-                                    @error('date')
+                                    <label for="weight">{{ __('Weight of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('weight') is-invalid @enderror" placeholder="Weight of parcel" id="weight" name="weight" required value="{{ old('weight') }}"/>
+                                    @error('weight')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="name">{{ __('Shipper Name') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('shipper_name') is-invalid @enderror" placeholder="Shipper Name" id="shipper_name" name="shipper_name" required value="{{ old('shipper_name') }}"/>
+                                    @error('shipper_name')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-3">
+                                    <label for="size">{{ __('Shipper Phone') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type='tel' class="form-control @error('shipper_phone') is-invalid @enderror" name="shipper_phone" id="shipper_phone" placeholder="Shipper phone" value="{{ old('shipper_phone') }}"/>
+                                    @error('shipper_phone')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-3">
+                                    <label for="mode">{{ __('Shipper Address') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input class="form-control @error('shipper_address') is-invalid @enderror" name="shipper_address" id="shipper_address" placeholder="Shipper Address" value="{{ old('shipper_address') }}" />
+                                    @error('shipper_address')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                               <div class="row">
+                                <div class="col-8">
+                                    <label for="origin">{{ __('Origin of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('origin') is-invalid @enderror" placeholder="Origin of parcel" id="origin" name="origin" required value="{{ old('origin') }}"/>
+                                    @error('origin')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-8">
+                                    <label for="name">{{ __('Destination of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('destination') is-invalid @enderror" placeholder="Destination of parcel" id="destination" name="destination" required value="{{ old('destination') }}"/>
+                                    @error('destination')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-2">
+                                    <label for="weight">{{ __('Weight of Parcel') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('weight') is-invalid @enderror" placeholder="Weight of parcel" id="weight" name="weight" required value="{{ old('weight') }}"/>
+                                    @error('weight')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                </div>
+                            <div class="row mt-2">
+                                <div class="col-3">
+                                    <label for="receiver_email">{{ __('Input Consignnee Name') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('consignee_name') is-invalid @enderror" placeholder="Input Consignnee Name" id="consignee_name" name="consignee_name" required value="{{ old('consignee_name') }}"/>
+                                    @error('receiver_email')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-3">
+                                    <label for="consignee_address">{{ __('Input Consignnee Address') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('consignee_address') is-invalid @enderror" placeholder="Input Consignnee Address" id="consignee_address" name="consignee_address" required value="{{ old('consignee_address') }}"/>
+                                    @error('consignee_address')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-3">
+                                    <label for="consignee_phone">{{ __('Input Consignnee Phone') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('consignee_phone') is-invalid @enderror" placeholder="Input Consignnee Phone" id="consignee_phone" name="consignee_phone" required value="{{ old('consignee_phone') }}"/>
+                                    @error('consignee_phone')
+                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="col-3">
+                                    <label for="booking_mode">{{ __('Input Booking Mode') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('booking_mode') is-invalid @enderror" placeholder="Input Booking Mode" id="booking_mode" name="booking_mode" required value="{{ old('booking_mode') }}"/>
+                                    @error('booking_mode')
                                     <span class="is-invalid text-center" role="alert" style="color: red">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -160,16 +265,16 @@
                                 </div>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-6">
-                                    <label for="location">{{ __('Location of parcel') }}<span style="color: red">{{ __('*') }}</span></label>
-                                    <input name="location" id="location" class="form-control @error('location') is-invalid @enderror" placeholder="Current location of parcel" required value="{{ old('location') }}"/>
-                                    @error('location')
-                                    <span class="is-invalid text-center" role="alert" style="color: red">
+                                 <div class="col-3">
+                                    <label for="name">{{ __('Status') }}<span style="color: red">{{ __('*') }}</span></label>
+                                    <input type="text" class="form-control @error('status') is-invalid @enderror" placeholder="Status" id="status" name="status" required value="{{ old('status') }}"/>
+                                    @error('status')
+                                        <span class="is-invalid text-center" role="alert" style="color: red">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="col-6">
+                                <div class="col-9">
                                     <label for="description">{{ __('Additional Description') }}</label>
                                     <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                                     @error('description')
