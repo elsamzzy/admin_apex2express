@@ -17,8 +17,7 @@ environment:
       BUILD_TYPE: nts-Win32
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 
-    # Temporary disabled, because on Windows with php 8 PSR extension always crashes.
-     - PHP_VERSION: 8.0
+    - PHP_VERSION: 8.0
        VC_VERSION: 16
        BUILD_TYPE: Win32
        APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
